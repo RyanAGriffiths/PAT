@@ -5,6 +5,8 @@
  */
 package UI;
 
+import javax.swing.DefaultComboBoxModel;
+
 /**
 
  @author Ryang
@@ -18,6 +20,13 @@ public class ViewPractices extends javax.swing.JFrame
     public ViewPractices()
     {
         initComponents();
+        
+        DefaultComboBoxModel<String> comboModel = new DefaultComboBoxModel<String>();
+		String[] practices = PracticeArray.getPracticeAsArray();
+		for (int i = 0; i < practices.length; i++) {
+			comboModel.addElement(practices[i]);
+		}
+		practiceDatesComboBox.setModel(comboModel);
     }
 
     /**
@@ -27,8 +36,7 @@ public class ViewPractices extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         teamList = new javax.swing.JList<>();
@@ -36,15 +44,16 @@ public class ViewPractices extends javax.swing.JFrame
         overviewLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         teamList1 = new javax.swing.JList<>();
-        toLineupButton = new javax.swing.JButton();
-        subButton = new javax.swing.JButton();
+        toPlayersButton = new javax.swing.JButton();
+        toPracticeButton = new javax.swing.JButton();
         substituteLabel = new javax.swing.JLabel();
         lineupLabel = new javax.swing.JLabel();
+        selectPracticeLabel = new javax.swing.JLabel();
+        practiceDatesComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        teamList.setModel(new javax.swing.AbstractListModel<String>()
-        {
+        teamList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
@@ -52,10 +61,8 @@ public class ViewPractices extends javax.swing.JFrame
         jScrollPane1.setViewportView(teamList);
 
         backButton.setText("back");
-        backButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
@@ -63,22 +70,19 @@ public class ViewPractices extends javax.swing.JFrame
         overviewLabel.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
         overviewLabel.setText("PRACTICES");
 
-        teamList1.setModel(new javax.swing.AbstractListModel<String>()
-        {
+        teamList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2.setViewportView(teamList1);
 
-        toLineupButton.setText("←");
+        toPlayersButton.setText("<");
 
-        subButton.setText("→");
-        subButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                subButtonActionPerformed(evt);
+        toPracticeButton.setText(">");
+        toPracticeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                toPracticeButtonActionPerformed(evt);
             }
         });
 
@@ -88,6 +92,16 @@ public class ViewPractices extends javax.swing.JFrame
         lineupLabel.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         lineupLabel.setText("PLAYERS");
 
+        selectPracticeLabel.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        selectPracticeLabel.setText("SELECT A PRACTICE");
+
+        practiceDatesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        practiceDatesComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                practiceDatesComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,32 +110,38 @@ public class ViewPractices extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(subButton, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-                            .addComponent(toLineupButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(backButton)
+                        .addGap(0, 418, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(overviewLabel)
-                            .addComponent(backButton))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(toPracticeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(toPlayersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(selectPracticeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(practiceDatesComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(55, 55, 55))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(lineupLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(170, 170, 170)
                 .addComponent(substituteLabel)
-                .addGap(57, 57, 57))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(206, Short.MAX_VALUE)
+                .addComponent(overviewLabel)
+                .addGap(207, 207, 207))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addComponent(overviewLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(substituteLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lineupLabel, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -133,10 +153,15 @@ public class ViewPractices extends javax.swing.JFrame
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(subButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(toPracticeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(toLineupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(109, 109, 109)))
+                        .addComponent(toPlayersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(109, 109, 109))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(selectPracticeLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(practiceDatesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(backButton)
                 .addGap(22, 22, 22))
         );
@@ -150,10 +175,14 @@ public class ViewPractices extends javax.swing.JFrame
         dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void subButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_subButtonActionPerformed
-    {//GEN-HEADEREND:event_subButtonActionPerformed
+    private void toPracticeButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_toPracticeButtonActionPerformed
+    {//GEN-HEADEREND:event_toPracticeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_subButtonActionPerformed
+    }//GEN-LAST:event_toPracticeButtonActionPerformed
+
+    private void practiceDatesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_practiceDatesComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_practiceDatesComboBoxActionPerformed
 
     /**
      @param args the command line arguments
@@ -237,10 +266,12 @@ public class ViewPractices extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lineupLabel;
     private javax.swing.JLabel overviewLabel;
-    private javax.swing.JButton subButton;
+    private javax.swing.JComboBox<String> practiceDatesComboBox;
+    private javax.swing.JLabel selectPracticeLabel;
     private javax.swing.JLabel substituteLabel;
     private javax.swing.JList<String> teamList;
     private javax.swing.JList<String> teamList1;
-    private javax.swing.JButton toLineupButton;
+    private javax.swing.JButton toPlayersButton;
+    private javax.swing.JButton toPracticeButton;
     // End of variables declaration//GEN-END:variables
 }

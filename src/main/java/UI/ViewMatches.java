@@ -27,44 +27,41 @@ public class ViewMatches extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         teamList = new javax.swing.JList<>();
         backButton = new javax.swing.JButton();
-        overviewLabel = new javax.swing.JLabel();
+        lineupHeadingLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         teamList1 = new javax.swing.JList<>();
         toLineupButton = new javax.swing.JButton();
         subButton = new javax.swing.JButton();
         substituteLabel = new javax.swing.JLabel();
         lineupLabel = new javax.swing.JLabel();
+        matchesButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        teamList.setModel(new javax.swing.AbstractListModel<String>()
-        {
+        teamList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(teamList);
 
+        backButton.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         backButton.setText("back");
-        backButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
 
-        overviewLabel.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
-        overviewLabel.setText("MATCHES");
+        lineupHeadingLabel.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
+        lineupHeadingLabel.setText("LINEUPS");
 
-        teamList1.setModel(new javax.swing.AbstractListModel<String>()
-        {
+        teamList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
@@ -74,10 +71,8 @@ public class ViewMatches extends javax.swing.JFrame
         toLineupButton.setText("←");
 
         subButton.setText("→");
-        subButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        subButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subButtonActionPerformed(evt);
             }
         });
@@ -87,6 +82,13 @@ public class ViewMatches extends javax.swing.JFrame
 
         lineupLabel.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         lineupLabel.setText("PLAYERS");
+
+        matchesButton.setText("Matches");
+        matchesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                matchesButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,14 +101,14 @@ public class ViewMatches extends javax.swing.JFrame
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(subButton, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                            .addComponent(subButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(toLineupButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(overviewLabel)
-                            .addComponent(backButton))
+                        .addComponent(backButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(matchesButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -115,13 +117,17 @@ public class ViewMatches extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(substituteLabel)
                 .addGap(72, 72, 72))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(143, Short.MAX_VALUE)
+                .addComponent(lineupHeadingLabel)
+                .addGap(142, 142, 142))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(overviewLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
+                .addComponent(lineupHeadingLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(substituteLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lineupLabel, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -137,7 +143,9 @@ public class ViewMatches extends javax.swing.JFrame
                         .addGap(18, 18, 18)
                         .addComponent(toLineupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(109, 109, 109)))
-                .addComponent(backButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backButton)
+                    .addComponent(matchesButton))
                 .addGap(22, 22, 22))
         );
 
@@ -154,6 +162,11 @@ public class ViewMatches extends javax.swing.JFrame
     {//GEN-HEADEREND:event_subButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_subButtonActionPerformed
+
+    private void matchesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matchesButtonActionPerformed
+        new LogMatches().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_matchesButtonActionPerformed
 
     /**
      @param args the command line arguments
@@ -235,8 +248,9 @@ public class ViewMatches extends javax.swing.JFrame
     private javax.swing.JButton backButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lineupHeadingLabel;
     private javax.swing.JLabel lineupLabel;
-    private javax.swing.JLabel overviewLabel;
+    private javax.swing.JButton matchesButton;
     private javax.swing.JButton subButton;
     private javax.swing.JLabel substituteLabel;
     private javax.swing.JList<String> teamList;

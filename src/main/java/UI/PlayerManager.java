@@ -42,8 +42,7 @@ public class PlayerManager extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         overviewLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -61,14 +60,14 @@ public class PlayerManager extends javax.swing.JFrame
         deleteButton = new javax.swing.JButton();
         sortAlphabeticallyButton = new javax.swing.JButton();
         sortByAgeButton = new javax.swing.JButton();
+        manageLineupsButton = new javax.swing.JButton();
 
         overviewLabel.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
         overviewLabel.setText("TEAM MANAGER");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lineupList.setModel(new javax.swing.AbstractListModel<String>()
-        {
+        lineupList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
@@ -76,10 +75,8 @@ public class PlayerManager extends javax.swing.JFrame
         jScrollPane1.setViewportView(lineupList);
 
         backButton.setText("back");
-        backButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
@@ -91,10 +88,8 @@ public class PlayerManager extends javax.swing.JFrame
         PlayerLabel.setText("PLAYER");
 
         addPlayerButton.setText("add");
-        addPlayerButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        addPlayerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addPlayerButtonActionPerformed(evt);
             }
         });
@@ -106,29 +101,31 @@ public class PlayerManager extends javax.swing.JFrame
         positionLabel.setText("position:");
 
         deleteButton.setText("delete");
-        deleteButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
             }
         });
 
         sortAlphabeticallyButton.setText("sort A-Z");
-        sortAlphabeticallyButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        sortAlphabeticallyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortAlphabeticallyButtonActionPerformed(evt);
             }
         });
 
         sortByAgeButton.setText("sort by age");
-        sortByAgeButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        sortByAgeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortByAgeButtonActionPerformed(evt);
+            }
+        });
+
+        manageLineupsButton.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
+        manageLineupsButton.setText("Manage lineups");
+        manageLineupsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageLineupsButtonActionPerformed(evt);
             }
         });
 
@@ -140,7 +137,9 @@ public class PlayerManager extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(backButton))
+                        .addComponent(backButton)
+                        .addGap(483, 483, 483)
+                        .addComponent(manageLineupsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,18 +160,23 @@ public class PlayerManager extends javax.swing.JFrame
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(sortAlphabeticallyButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(sortByAgeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))))
+                                    .addComponent(sortByAgeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(backButton)
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(backButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(manageLineupsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -201,7 +205,7 @@ public class PlayerManager extends javax.swing.JFrame
                         .addComponent(sortAlphabeticallyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(sortByAgeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -251,6 +255,11 @@ public class PlayerManager extends javax.swing.JFrame
 
         lineupList.setListData(players);
     }//GEN-LAST:event_addPlayerButtonActionPerformed
+
+    private void manageLineupsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageLineupsButtonActionPerformed
+        new ViewMatches().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_manageLineupsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,6 +324,7 @@ public class PlayerManager extends javax.swing.JFrame
     private javax.swing.JButton deleteButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lineupList;
+    private javax.swing.JButton manageLineupsButton;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JLabel overviewLabel;
