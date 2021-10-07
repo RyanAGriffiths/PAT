@@ -9,13 +9,13 @@ package UI;
 
  @author Ryang
  */
-public class ViewMatches extends javax.swing.JFrame
+public class Lineups extends javax.swing.JFrame
 {
 
     /**
      Creates new form matches
      */
-    public ViewMatches()
+    public Lineups()
     {
         initComponents();
     }
@@ -27,7 +27,8 @@ public class ViewMatches extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         teamList = new javax.swing.JList<>();
@@ -43,17 +44,14 @@ public class ViewMatches extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        teamList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(teamList);
 
         backButton.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         backButton.setText("back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        backButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 backButtonActionPerformed(evt);
             }
         });
@@ -61,18 +59,15 @@ public class ViewMatches extends javax.swing.JFrame
         lineupHeadingLabel.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
         lineupHeadingLabel.setText("LINEUPS");
 
-        teamList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(teamList1);
 
         toLineupButton.setText("←");
 
         subButton.setText("→");
-        subButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        subButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 subButtonActionPerformed(evt);
             }
         });
@@ -84,8 +79,10 @@ public class ViewMatches extends javax.swing.JFrame
         lineupLabel.setText("PLAYERS");
 
         matchesButton.setText("Matches");
-        matchesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        matchesButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 matchesButtonActionPerformed(evt);
             }
         });
@@ -154,7 +151,7 @@ public class ViewMatches extends javax.swing.JFrame
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_backButtonActionPerformed
     {//GEN-HEADEREND:event_backButtonActionPerformed
-        new Overview().setVisible(true);
+        new MobileManager().setVisible(true);
         dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -190,17 +187,49 @@ public class ViewMatches extends javax.swing.JFrame
             }
         } catch (ClassNotFoundException ex)
         {
-            java.util.logging.Logger.getLogger(ViewMatches.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Lineups.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex)
         {
-            java.util.logging.Logger.getLogger(ViewMatches.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Lineups.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex)
         {
-            java.util.logging.Logger.getLogger(ViewMatches.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Lineups.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex)
         {
-            java.util.logging.Logger.getLogger(ViewMatches.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Lineups.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -239,7 +268,7 @@ public class ViewMatches extends javax.swing.JFrame
         {
             public void run()
             {
-                new ViewMatches().setVisible(true);
+                new Lineups().setVisible(true);
             }
         });
     }

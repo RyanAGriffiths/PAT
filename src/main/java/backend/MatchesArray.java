@@ -7,6 +7,8 @@ package backend;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -42,18 +44,27 @@ public class MatchesArray
         }
     }
 
-    private int binarySearch(String email)
+    public int binarySearch(String date)
     {
+
         int start = 0;
         int end = size - 1;
 
         while (start <= end)
         {
+            Scanner sc = new Scanner(date).useDelimiter(" ");
+            int i = sc.nextInt();
+            System.out.println("date " + i);
+            sc.close();
             int middle = (start + end) / 2;
-            if (mArr[middle].getDate().equals(email))
+            System.out.println("middle " + middle);
+            System.out.println("txt file date (mid)" + mArr[middle].getDateInt());
+            System.out.println("end " + end + "start " + start );
+
+            if ((mArr[middle].getDateInt()) == i)
             {
                 return middle;
-            } else if (email.compareTo(mArr[middle].getDate()) > 0)
+            } else if ((mArr[middle].getDateInt()) > i)
             {
                 start = middle + 1;
             } else
@@ -66,7 +77,7 @@ public class MatchesArray
 
     public void shiftLeft(int index)
     {
-        for (int i = index; i < size; i++)
+        for (int i = index; i < size - 1; i++)
         {
             mArr[i] = mArr[i + 1];
         }
@@ -76,7 +87,7 @@ public class MatchesArray
     public void shiftRight(int index)
     {
         size++;
-        for (int i = size - 1; i > index - 1; i--)
+        for (int i = size -1; i > index - 1; i--)
         {
             mArr[i] = mArr[i - 1];
         }
@@ -88,15 +99,15 @@ public class MatchesArray
         try
         {
 
-            PrintWriter pw = new PrintWriter(new File("data\\playerData.txt"));
+            PrintWriter pw = new PrintWriter(new File("data\\matchesData.txt"));
             for (int i = 0; i < size; i++)
             {
                 pw.println(mArr[i]);
             }
             pw.close();
-        } catch (FileNotFoundException ex)
+        } catch (IOException ex)
         {
-            System.out.println("yea naw... (print function)");
+            System.out.println("Couldn't print to the file");
         }
     }
 
@@ -127,22 +138,26 @@ public class MatchesArray
 
     public void deleteMatch(String date)
     {
+
         int index = binarySearch(date);
-        if (index > 0)
+        System.out.println(index);
+        if (index >= 0)
         {
             shiftLeft(index);
+            printToFile();
         } else
         {
-            System.out.println("This player does not exist");
+            System.out.println("This match does not exist");
         }
     }
 
     public String[] getMatch()
     {
         String[] players = new String[150];
-        for (int i = 0; i < size - 1; i++)
+        for (int i = 0; i < size; i++)
         {
-            players[i] = mArr[i].getDate();
+            players[i] = mArr[i].getDate() + "                   " + mArr[i].getOpponent() + "                   " + mArr[i].getLocation();
+
         }
         return players;
     }

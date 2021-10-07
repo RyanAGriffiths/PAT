@@ -14,8 +14,8 @@ public class Test
 
     public static void main(String[] args)
     {
-        PlayerArray p = new PlayerArray();
-        p.addPlayer(18, "Nathaniel", "GK");
+        MatchesArray p = new MatchesArray();
+        p.printToFile();
         
     }
 }

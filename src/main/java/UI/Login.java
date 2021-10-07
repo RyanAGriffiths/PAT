@@ -132,7 +132,7 @@ public class Login extends javax.swing.JFrame
         UserArray arr = new UserArray();
         if (arr.checkUser(username, password))
         {
-            new Overview().setVisible(true);
+            new MobileManager().setVisible(true);
             dispose();
         }
         else{

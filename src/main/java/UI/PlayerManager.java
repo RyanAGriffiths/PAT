@@ -42,7 +42,8 @@ public class PlayerManager extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         overviewLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -67,16 +68,13 @@ public class PlayerManager extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lineupList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(lineupList);
 
         backButton.setText("back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        backButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 backButtonActionPerformed(evt);
             }
         });
@@ -88,8 +86,10 @@ public class PlayerManager extends javax.swing.JFrame
         PlayerLabel.setText("PLAYER");
 
         addPlayerButton.setText("add");
-        addPlayerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        addPlayerButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 addPlayerButtonActionPerformed(evt);
             }
         });
@@ -101,30 +101,37 @@ public class PlayerManager extends javax.swing.JFrame
         positionLabel.setText("position:");
 
         deleteButton.setText("delete");
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        deleteButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 deleteButtonActionPerformed(evt);
             }
         });
 
         sortAlphabeticallyButton.setText("sort A-Z");
-        sortAlphabeticallyButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        sortAlphabeticallyButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 sortAlphabeticallyButtonActionPerformed(evt);
             }
         });
 
         sortByAgeButton.setText("sort by age");
-        sortByAgeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        sortByAgeButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 sortByAgeButtonActionPerformed(evt);
             }
         });
 
-        manageLineupsButton.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
         manageLineupsButton.setText("Manage lineups");
-        manageLineupsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        manageLineupsButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 manageLineupsButtonActionPerformed(evt);
             }
         });
@@ -213,7 +220,7 @@ public class PlayerManager extends javax.swing.JFrame
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_backButtonActionPerformed
     {//GEN-HEADEREND:event_backButtonActionPerformed
-        new Overview().setVisible(true);
+        new MobileManager().setVisible(true);
         dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -257,7 +264,7 @@ public class PlayerManager extends javax.swing.JFrame
     }//GEN-LAST:event_addPlayerButtonActionPerformed
 
     private void manageLineupsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageLineupsButtonActionPerformed
-        new ViewMatches().setVisible(true);
+        new Lineups().setVisible(true);
         dispose();
     }//GEN-LAST:event_manageLineupsButtonActionPerformed
 

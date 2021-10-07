@@ -41,6 +41,14 @@ public class Practice
     {
         this.time = time;
     }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
     
     public String toString()
     {

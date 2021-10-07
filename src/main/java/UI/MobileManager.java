@@ -12,15 +12,15 @@ import backend.User;
 
  @author Ryang
  */
-public class Overview extends javax.swing.JFrame
+public class MobileManager extends javax.swing.JFrame
 {
 
     /**
      Creates new form overview
      */
-    public Overview()
+    public MobileManager()
     {
-        //welcomeLabel.setText("Hey," + User.class.getName());
+        
         initComponents();
         
     }
@@ -32,56 +32,69 @@ public class Overview extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         PlayerManagerButton = new javax.swing.JButton();
         practiceButton1 = new javax.swing.JButton();
         ViewMatchesButton = new javax.swing.JButton();
-        TeamManagerButton = new javax.swing.JButton();
+        lineupsButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         overviewLabel = new javax.swing.JLabel();
-        lineupsButton = new javax.swing.JButton();
+        attendanceButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(500, 340));
+        setMinimumSize(new java.awt.Dimension(500, 340));
         setPreferredSize(new java.awt.Dimension(500, 400));
         setSize(new java.awt.Dimension(500, 340));
 
         PlayerManagerButton.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        PlayerManagerButton.setText("Manage players");
-        PlayerManagerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        PlayerManagerButton.setText("Player manager");
+        PlayerManagerButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 PlayerManagerButtonActionPerformed(evt);
             }
         });
 
         practiceButton1.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         practiceButton1.setText("Practices");
-        practiceButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        practiceButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 practiceButton1ActionPerformed(evt);
             }
         });
 
         ViewMatchesButton.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         ViewMatchesButton.setText("Matches");
-        ViewMatchesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ViewMatchesButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 ViewMatchesButtonActionPerformed(evt);
             }
         });
 
-        TeamManagerButton.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        TeamManagerButton.setText("Manage teams");
-        TeamManagerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TeamManagerButtonActionPerformed(evt);
+        lineupsButton.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        lineupsButton.setText("Lineups");
+        lineupsButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                lineupsButtonActionPerformed(evt);
             }
         });
 
         logoutButton.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         logoutButton.setText("logout");
-        logoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        logoutButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 logoutButtonActionPerformed(evt);
             }
         });
@@ -89,8 +102,15 @@ public class Overview extends javax.swing.JFrame
         overviewLabel.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
         overviewLabel.setText("MOBILE MANAGER");
 
-        lineupsButton.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        lineupsButton.setText("Lineups");
+        attendanceButton.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        attendanceButton.setText("Attendance");
+        attendanceButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                attendanceButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,11 +127,11 @@ public class Overview extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TeamManagerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lineupsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PlayerManagerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                     .addComponent(practiceButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ViewMatchesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lineupsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(attendanceButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,9 +146,9 @@ public class Overview extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addComponent(PlayerManagerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(TeamManagerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addComponent(lineupsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(attendanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(logoutButton)
                 .addGap(23, 23, 23))
@@ -149,11 +169,11 @@ public class Overview extends javax.swing.JFrame
         dispose();
     }//GEN-LAST:event_PlayerManagerButtonActionPerformed
 
-    private void TeamManagerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_TeamManagerButtonActionPerformed
-    {//GEN-HEADEREND:event_TeamManagerButtonActionPerformed
-        new ViewMatches().setVisible(true);
+    private void lineupsButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_lineupsButtonActionPerformed
+    {//GEN-HEADEREND:event_lineupsButtonActionPerformed
+        new Lineups().setVisible(true);
         dispose();
-    }//GEN-LAST:event_TeamManagerButtonActionPerformed
+    }//GEN-LAST:event_lineupsButtonActionPerformed
 
     private void ViewMatchesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ViewMatchesButtonActionPerformed
     {//GEN-HEADEREND:event_ViewMatchesButtonActionPerformed
@@ -166,6 +186,13 @@ public class Overview extends javax.swing.JFrame
         new Login().setVisible(true);
         dispose();
     }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void attendanceButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_attendanceButtonActionPerformed
+    {//GEN-HEADEREND:event_attendanceButtonActionPerformed
+        new PracticeAttendance().setVisible(true);
+        dispose();
+                
+    }//GEN-LAST:event_attendanceButtonActionPerformed
 
     /**
      @param args the command line arguments
@@ -189,17 +216,19 @@ public class Overview extends javax.swing.JFrame
             }
         } catch (ClassNotFoundException ex)
         {
-            java.util.logging.Logger.getLogger(Overview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MobileManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex)
         {
-            java.util.logging.Logger.getLogger(Overview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MobileManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex)
         {
-            java.util.logging.Logger.getLogger(Overview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MobileManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex)
         {
-            java.util.logging.Logger.getLogger(Overview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MobileManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -208,15 +237,15 @@ public class Overview extends javax.swing.JFrame
         {
             public void run()
             {
-                new Overview().setVisible(true);
+                new MobileManager().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PlayerManagerButton;
-    private javax.swing.JButton TeamManagerButton;
     private javax.swing.JButton ViewMatchesButton;
+    private javax.swing.JButton attendanceButton;
     private javax.swing.JButton lineupsButton;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel overviewLabel;

@@ -131,6 +131,7 @@ public class PracticeArray
         if (index > 0)
         {
             shiftLeft(index);
+            printToFile();
         } else
         {
             System.out.println("This player does not exist");
@@ -139,12 +140,12 @@ public class PracticeArray
 
     public String[] getPractice()
     {
-        String[] players = new String[150];
-        for (int i = 0; i < size - 1; i++)
+        String[] practice = new String[150];
+        for (int i = 0; i < size; i++)
         {
-            players[i] = pArr[i].getDate();
+            practice[i] = pArr[i].getDate() + " " + pArr[i].getTime() + " " + pArr[i].getLocation();
         }
-        return players;
+        return practice;
     }
 
     public static String[] getPracticeAsArray()
@@ -158,7 +159,13 @@ public class PracticeArray
 
             while (sc.hasNextLine())
             {
-                outputArr[currentIndex] = sc.nextLine();
+                String line = sc.nextLine();
+                Scanner lsc = new Scanner(line).useDelimiter("#");
+                String date = lsc.next();
+                String time = lsc.next();
+                String location = lsc.next(); 
+                
+                outputArr[currentIndex] = date + " " + time + " " + location;
                 currentIndex++;
             }
             sc.close();
