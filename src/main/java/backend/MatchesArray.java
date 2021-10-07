@@ -24,7 +24,7 @@ public class MatchesArray
             while (sc.hasNext())
             {
                 String line = sc.nextLine();
-                Scanner lsc = new Scanner(line);
+                Scanner lsc = new Scanner(line).useDelimiter("#");
 
                 String date = lsc.next();
                 String opponent = lsc.next();
@@ -41,7 +41,8 @@ public class MatchesArray
             System.out.println("Matches file was not found");
         }
     }
-private int binarySearch(String email)
+
+    private int binarySearch(String email)
     {
         int start = 0;
         int end = size - 1;
@@ -135,7 +136,6 @@ private int binarySearch(String email)
             System.out.println("This player does not exist");
         }
     }
-
 
     public String[] getMatch()
     {

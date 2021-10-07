@@ -5,6 +5,7 @@
  */
 package UI;
 
+import backend.PracticeArray;
 import javax.swing.DefaultComboBoxModel;
 
 /**
