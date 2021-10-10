@@ -5,8 +5,8 @@
 package backend;
 
 /**
-
- @author ryang
+ *
+ * @author ryang
  */
 public class Practice
 {
@@ -27,6 +27,13 @@ public class Practice
         return date;
     }
 
+    public int getDateInt()
+    {
+        char c = date.charAt(0);
+        String s = Character.toString(c);
+        return Integer.parseInt(s);
+    }
+
     public void setDate(String date)
     {
         this.date = date;
@@ -42,16 +49,18 @@ public class Practice
         this.time = time;
     }
 
-    public String getLocation() {
+    public String getLocation()
+    {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(String location)
+    {
         this.location = location;
     }
-    
+
     public String toString()
     {
-        return date + "\t" + time + "\t" + location;
+        return date + "#" + time + "#" + location;
     }
 }

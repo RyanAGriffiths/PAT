@@ -5,6 +5,8 @@
  */
 package backend;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Ryang
@@ -27,9 +29,9 @@ public class Matches {
 
     public int getDateInt() {
         
-        char d = date.charAt(0);
-        String c = Character.toString(d);
-        return Integer.parseInt(c);
+        Scanner sc = new Scanner(date);
+        int newDate = sc.nextInt();
+        return newDate;
     }
 
     public void setDate(String date) {

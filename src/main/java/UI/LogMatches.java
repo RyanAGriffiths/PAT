@@ -9,24 +9,28 @@ import backend.MatchesArray;
 import backend.PlayerArray;
 import java.util.Scanner;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Ryang
  */
-public class LogMatches extends javax.swing.JFrame {
+public class LogMatches extends javax.swing.JFrame
+{
 
     /**
      * Creates new form matches
      */
-    public LogMatches() {
+    public LogMatches()
+    {
         initComponents();
 
         MatchesArray m = new MatchesArray();
 
         DefaultListModel<String> playerListModel = new DefaultListModel<String>();
         String[] players = m.getMatch();
-        for (int i = 0; i < players.length; i++) {
+        for (int i = 0; i < players.length; i++)
+        {
             playerListModel.addElement(players[i]);
         }
         practiceList.setModel(playerListModel);
@@ -39,56 +43,65 @@ public class LogMatches extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         backButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        matchesLabel = new javax.swing.JLabel();
         addMatchButton = new javax.swing.JButton();
         deleteMatchButton = new javax.swing.JButton();
-        dateMatchTextField = new javax.swing.JTextField();
+        dateTextField = new javax.swing.JTextField();
         exampleLabel = new javax.swing.JLabel();
-        OpponentTextField = new javax.swing.JTextField();
+        opponentTextField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         practiceList = new javax.swing.JList<>();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        LocationTextField = new javax.swing.JTextField();
+        logLabel = new javax.swing.JLabel();
+        dataExampleLabel = new javax.swing.JLabel();
+        locationTextField = new javax.swing.JTextField();
         exampleLabel1 = new javax.swing.JLabel();
         exampleLabel2 = new javax.swing.JLabel();
+        exampleLabel3 = new javax.swing.JLabel();
+        dataLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         backButton.setText("back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        backButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 backButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("MATCHES");
-        jLabel1.setFocusable(false);
+        matchesLabel.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
+        matchesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        matchesLabel.setText("MATCHES");
+        matchesLabel.setFocusable(false);
 
         addMatchButton.setText("add match");
-        addMatchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        addMatchButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 addMatchButtonActionPerformed(evt);
             }
         });
 
         deleteMatchButton.setText("delete match");
-        deleteMatchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        deleteMatchButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 deleteMatchButtonActionPerformed(evt);
             }
         });
 
-        dateMatchTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateMatchTextFieldActionPerformed(evt);
+        dateTextField.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                dateTextFieldActionPerformed(evt);
             }
         });
 
@@ -97,26 +110,27 @@ public class LogMatches extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(practiceList);
 
-        jLabel2.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("LOG");
-        jLabel2.setToolTipText("");
-        jLabel2.setFocusable(false);
+        logLabel.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
+        logLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logLabel.setText("LOG");
+        logLabel.setToolTipText("");
+        logLabel.setFocusable(false);
 
-        jLabel3.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jLabel3.setText("Date");
-
-        jLabel4.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jLabel4.setText("Opponent");
-
-        jLabel5.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        jLabel5.setText("Location");
+        dataExampleLabel.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        dataExampleLabel.setText("Date - Opponent - Location");
 
         exampleLabel1.setForeground(new java.awt.Color(153, 153, 153));
         exampleLabel1.setText("Opponent");
 
         exampleLabel2.setForeground(new java.awt.Color(153, 153, 153));
         exampleLabel2.setText("Location");
+
+        exampleLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        exampleLabel3.setText("e.g. H/A");
+
+        dataLabel.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        dataLabel.setForeground(new java.awt.Color(153, 153, 153));
+        dataLabel.setText("Data:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,67 +139,73 @@ public class LogMatches extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(OpponentTextField, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LocationTextField)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(addMatchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(exampleLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(deleteMatchButton))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(backButton)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dateMatchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exampleLabel)
-                            .addComponent(exampleLabel2))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(opponentTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(locationTextField)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(addMatchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(exampleLabel1))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(deleteMatchButton))
+                                            .addComponent(backButton)
+                                            .addComponent(dateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(exampleLabel)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(exampleLabel2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(exampleLabel3)))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(53, 53, 53))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(matchesLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dataExampleLabel)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dataLabel)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabel3)
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel4)
-                        .addGap(71, 71, 71)
-                        .addComponent(jLabel5)
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(logLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(matchesLabel)
+                        .addGap(30, 30, 30)
+                        .addComponent(exampleLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(dataLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dataExampleLabel)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(exampleLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dateMatchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(exampleLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(OpponentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(opponentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(exampleLabel2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(exampleLabel2)
+                            .addComponent(exampleLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LocationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(locationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(addMatchButton)
@@ -206,24 +226,38 @@ public class LogMatches extends javax.swing.JFrame {
 
     private void addMatchButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_addMatchButtonActionPerformed
     {//GEN-HEADEREND:event_addMatchButtonActionPerformed
-
-        String date = dateMatchTextField.getText();
-        String opponent = OpponentTextField.getText();
-        char location = LocationTextField.getText().charAt(0);
         MatchesArray m = new MatchesArray();
+        if (dateTextField.getText().isEmpty() || opponentTextField.getText().isEmpty() || locationTextField.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Please input values", "ERROR!", JOptionPane.ERROR_MESSAGE);
+        } else
+        {
 
-        m.addMatch(date, opponent, location);
+            String date = dateTextField.getText();
+            String opponent = opponentTextField.getText();
 
-        DefaultListModel<String> playerListModel = new DefaultListModel<String>();
-        String[] players = m.getMatch();
-        for (int i = 0; i < players.length; i++) {
-            playerListModel.addElement(players[i]);
+            char location = locationTextField.getText().charAt(0);
+            if (m.checkDate(date))
+            {
+
+                m.addMatch(date, opponent, location);
+
+                DefaultListModel<String> playerListModel = new DefaultListModel<String>();
+                String[] players = m.getMatch();
+                for (int i = 0; i < players.length; i++)
+                {
+                    playerListModel.addElement(players[i]);
+                }
+                practiceList.setModel(playerListModel);
+
+                dateTextField.setText("");
+                opponentTextField.setText("");
+                locationTextField.setText("");
+            } else
+            {
+                JOptionPane.showMessageDialog(this, "Please input the date correctly", "ERROR!", JOptionPane.ERROR_MESSAGE);
+            }
         }
-        practiceList.setModel(playerListModel);
-
-        dateMatchTextField.setText("");
-        OpponentTextField.setText("");
-        LocationTextField.setText("");
     }//GEN-LAST:event_addMatchButtonActionPerformed
 
     private void deleteMatchButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_deleteMatchButtonActionPerformed
@@ -232,46 +266,55 @@ public class LogMatches extends javax.swing.JFrame {
         String selected = practiceList.getSelectedValue();
         MatchesArray m = new MatchesArray();
         m.deleteMatch(selected);
-        
+
         DefaultListModel<String> playerListModel = new DefaultListModel<String>();
         String[] players = m.getMatch();
-        for (int i = 0; i < players.length; i++) {
+        for (int i = 0; i < players.length; i++)
+        {
             playerListModel.addElement(players[i]);
         }
         practiceList.setModel(playerListModel);
-        dateMatchTextField.setText("");
-        OpponentTextField.setText("");
-        LocationTextField.setText("");
+        dateTextField.setText("");
+        opponentTextField.setText("");
+        locationTextField.setText("");
     }//GEN-LAST:event_deleteMatchButtonActionPerformed
 
-    private void dateMatchTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_dateMatchTextFieldActionPerformed
-    {//GEN-HEADEREND:event_dateMatchTextFieldActionPerformed
+    private void dateTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_dateTextFieldActionPerformed
+    {//GEN-HEADEREND:event_dateTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_dateMatchTextFieldActionPerformed
+    }//GEN-LAST:event_dateTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+        try
+        {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            {
+                if ("Nimbus".equals(info.getName()))
+                {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             java.util.logging.Logger.getLogger(LogMatches.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        } catch (InstantiationException ex)
+        {
             java.util.logging.Logger.getLogger(LogMatches.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex)
+        {
             java.util.logging.Logger.getLogger(LogMatches.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex)
+        {
             java.util.logging.Logger.getLogger(LogMatches.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -292,29 +335,31 @@ public class LogMatches extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new LogMatches().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField LocationTextField;
-    private javax.swing.JTextField OpponentTextField;
     private javax.swing.JButton addMatchButton;
     private javax.swing.JButton backButton;
-    private javax.swing.JTextField dateMatchTextField;
+    private javax.swing.JLabel dataExampleLabel;
+    private javax.swing.JLabel dataLabel;
+    private javax.swing.JTextField dateTextField;
     private javax.swing.JButton deleteMatchButton;
     private javax.swing.JLabel exampleLabel;
     private javax.swing.JLabel exampleLabel1;
     private javax.swing.JLabel exampleLabel2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel exampleLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField locationTextField;
+    private javax.swing.JLabel logLabel;
+    private javax.swing.JLabel matchesLabel;
+    private javax.swing.JTextField opponentTextField;
     private javax.swing.JList<String> practiceList;
     // End of variables declaration//GEN-END:variables
 }

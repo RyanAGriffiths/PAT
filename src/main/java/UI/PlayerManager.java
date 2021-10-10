@@ -6,7 +6,9 @@
 package UI;
 
 import backend.PlayerArray;
+import backend.PracticeArray;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,7 +25,7 @@ public class PlayerManager extends javax.swing.JFrame
         initComponents();
 
         PlayerArray p = new PlayerArray();
-        String[] players = p.getPlayers();
+        String[] players = p.getPlayerAsArray();
 
         DefaultListModel<String> model = new DefaultListModel<String>();
 
@@ -51,17 +53,19 @@ public class PlayerManager extends javax.swing.JFrame
         backButton = new javax.swing.JButton();
         ManagerLabel = new javax.swing.JLabel();
         PlayerLabel = new javax.swing.JLabel();
-        nameTextField = new javax.swing.JTextField();
         addPlayerButton = new javax.swing.JButton();
-        nameLabel = new javax.swing.JLabel();
-        ageTextField = new javax.swing.JTextField();
-        ageLabel = new javax.swing.JLabel();
-        positionTextField = new javax.swing.JTextField();
-        positionLabel = new javax.swing.JLabel();
         deleteButton = new javax.swing.JButton();
         sortAlphabeticallyButton = new javax.swing.JButton();
         sortByAgeButton = new javax.swing.JButton();
-        manageLineupsButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        exampleLabel3 = new javax.swing.JLabel();
+        positionTextField = new javax.swing.JTextField();
+        exampleLabel1 = new javax.swing.JLabel();
+        nameTextField = new javax.swing.JTextField();
+        exampleLabel2 = new javax.swing.JLabel();
+        exampleLabel = new javax.swing.JLabel();
+        ageTextField = new javax.swing.JTextField();
 
         overviewLabel.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
         overviewLabel.setText("TEAM MANAGER");
@@ -85,6 +89,7 @@ public class PlayerManager extends javax.swing.JFrame
         PlayerLabel.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
         PlayerLabel.setText("PLAYER");
 
+        addPlayerButton.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         addPlayerButton.setText("add");
         addPlayerButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -94,12 +99,7 @@ public class PlayerManager extends javax.swing.JFrame
             }
         });
 
-        nameLabel.setText("name:");
-
-        ageLabel.setText("age:");
-
-        positionLabel.setText("position:");
-
+        deleteButton.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         deleteButton.setText("delete");
         deleteButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -109,6 +109,7 @@ public class PlayerManager extends javax.swing.JFrame
             }
         });
 
+        sortAlphabeticallyButton.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         sortAlphabeticallyButton.setText("sort A-Z");
         sortAlphabeticallyButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -118,6 +119,7 @@ public class PlayerManager extends javax.swing.JFrame
             }
         });
 
+        sortByAgeButton.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         sortByAgeButton.setText("sort by age");
         sortByAgeButton.addActionListener(new java.awt.event.ActionListener()
         {
@@ -127,14 +129,32 @@ public class PlayerManager extends javax.swing.JFrame
             }
         });
 
-        manageLineupsButton.setText("Manage lineups");
-        manageLineupsButton.addActionListener(new java.awt.event.ActionListener()
+        jLabel1.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel1.setText("Data:");
+
+        jLabel2.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
+        jLabel2.setText("Name -  Age - Position");
+
+        exampleLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        exampleLabel3.setText("e.g. GK/CM");
+
+        exampleLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        exampleLabel1.setText("Age:");
+
+        nameTextField.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                manageLineupsButtonActionPerformed(evt);
+                nameTextFieldActionPerformed(evt);
             }
         });
+
+        exampleLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        exampleLabel2.setText("Position:");
+
+        exampleLabel.setForeground(new java.awt.Color(153, 153, 153));
+        exampleLabel.setText("Name:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,74 +165,92 @@ public class PlayerManager extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backButton)
-                        .addGap(483, 483, 483)
-                        .addComponent(manageLineupsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PlayerLabel)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(PlayerLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ManagerLabel)
-                                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nameLabel)
-                                    .addComponent(ageLabel)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(ageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(ageTextField)
+                                                .addGap(26, 26, 26))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(4, 4, 4)
+                                                        .addComponent(ManagerLabel))
+                                                    .addComponent(positionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(addPlayerButton))
+                                                .addGap(16, 16, 16)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(positionLabel)
-                                            .addComponent(positionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(addPlayerButton, javax.swing.GroupLayout.Alignment.LEADING)))
-                                .addGap(16, 16, 16)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(sortAlphabeticallyButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(sortByAgeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(sortAlphabeticallyButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(sortByAgeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(exampleLabel1)
+                                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(exampleLabel)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(exampleLabel2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(exampleLabel3)))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
                 .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(backButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(manageLineupsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(107, 107, 107)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1)
+                .addGap(50, 50, 50)
+                .addComponent(backButton)
                 .addGap(10, 10, 10))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(PlayerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ManagerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(nameLabel)
+                        .addGap(27, 27, 27)
+                        .addComponent(exampleLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ageLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(positionLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(positionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(exampleLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(exampleLabel2)
+                            .addComponent(exampleLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(positionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(addPlayerButton))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
                         .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(sortAlphabeticallyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(sortByAgeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         pack();
@@ -226,47 +264,77 @@ public class PlayerManager extends javax.swing.JFrame
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_deleteButtonActionPerformed
     {//GEN-HEADEREND:event_deleteButtonActionPerformed
-        String player = lineupList.getSelectedValue();
-        PlayerArray p = new PlayerArray();
-        p.deletePlayer(player);
-        String[] players = p.getPlayers();
-        lineupList.setListData(players);
+        if (lineupList.getSelectedValue() == null)
+        {
+
+            JOptionPane.showMessageDialog(this, "Please select a player from the list", "ERROR!", JOptionPane.ERROR_MESSAGE);
+        } else
+        {
+
+            String player = lineupList.getSelectedValue();
+            PlayerArray p = new PlayerArray();
+            p.sortAlphabetically();
+            p.deletePlayer(player);
+
+            String[] players = PlayerArray.getPlayerAsArray();
+            lineupList.setListData(players);
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void sortAlphabeticallyButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_sortAlphabeticallyButtonActionPerformed
     {//GEN-HEADEREND:event_sortAlphabeticallyButtonActionPerformed
         PlayerArray p = new PlayerArray();
         p.sortAlphabetically();
-        String[] players = p.getPlayers();
+        String[] players = PlayerArray.getPlayerAsArray();
+
         lineupList.setListData(players);
     }//GEN-LAST:event_sortAlphabeticallyButtonActionPerformed
 
     private void sortByAgeButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_sortByAgeButtonActionPerformed
     {//GEN-HEADEREND:event_sortByAgeButtonActionPerformed
         PlayerArray p = new PlayerArray();
-        //p.sortByAge();
-        String[] players = p.getPlayers();
+        p.sortbyAge();
+        String[] players = PlayerArray.getPlayerAsArray();
+
         lineupList.setListData(players);
     }//GEN-LAST:event_sortByAgeButtonActionPerformed
 
     private void addPlayerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_addPlayerButtonActionPerformed
     {//GEN-HEADEREND:event_addPlayerButtonActionPerformed
-        PlayerArray p = new PlayerArray();
-        String name = nameTextField.getText();
-        int age = Integer.parseInt(nameTextField.getText());
-        String position = nameTextField.getText();
-        
-        p.addPlayer(age, name, position);
-        
-        String[] players = p.getPlayers();
+        if (nameTextField.getText().isEmpty() || ageTextField.getText().isEmpty() || positionTextField.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Please input values", "ERROR!", JOptionPane.ERROR_MESSAGE);
+        } else
+        {
+            PlayerArray p = new PlayerArray();
+            String name = nameTextField.getText();
+            //String ageStr = ageTextField.getText();
+            //int age = Integer.parseInt(ageStr);
+            //System.out.println("age: " + age);
+            String position = positionTextField.getText();
+            if (p.checkAge(ageTextField.getText()))
+            {
+                String ageStr = ageTextField.getText();
+                int age = Integer.parseInt(ageStr);
+                p.addPlayer(age, name, position);
+                String[] players = PlayerArray.getPlayerAsArray();
 
-        lineupList.setListData(players);
+                lineupList.setListData(players);
+                nameTextField.setText("");
+                ageTextField.setText("");
+                positionTextField.setText("");
+            } else
+            {
+                JOptionPane.showMessageDialog(this, "Please input the age correctly", "ERROR!", JOptionPane.ERROR_MESSAGE);
+            }
+
+        }
     }//GEN-LAST:event_addPlayerButtonActionPerformed
 
-    private void manageLineupsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageLineupsButtonActionPerformed
-        new Lineups().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_manageLineupsButtonActionPerformed
+    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_nameTextFieldActionPerformed
+    {//GEN-HEADEREND:event_nameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,7 +377,7 @@ public class PlayerManager extends javax.swing.JFrame
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable()
         {
@@ -318,24 +386,26 @@ public class PlayerManager extends javax.swing.JFrame
                 new PlayerManager().setVisible(true);
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ManagerLabel;
     private javax.swing.JLabel PlayerLabel;
     private javax.swing.JButton addPlayerButton;
-    private javax.swing.JLabel ageLabel;
     private javax.swing.JTextField ageTextField;
     private javax.swing.JButton backButton;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JLabel exampleLabel;
+    private javax.swing.JLabel exampleLabel1;
+    private javax.swing.JLabel exampleLabel2;
+    private javax.swing.JLabel exampleLabel3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lineupList;
-    private javax.swing.JButton manageLineupsButton;
-    private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JLabel overviewLabel;
-    private javax.swing.JLabel positionLabel;
     private javax.swing.JTextField positionTextField;
     private javax.swing.JButton sortAlphabeticallyButton;
     private javax.swing.JButton sortByAgeButton;

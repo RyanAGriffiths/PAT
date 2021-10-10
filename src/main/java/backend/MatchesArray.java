@@ -11,6 +11,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 public class MatchesArray
 {
@@ -49,27 +51,21 @@ public class MatchesArray
 
         int start = 0;
         int end = size - 1;
-
         while (start <= end)
         {
             Scanner sc = new Scanner(date).useDelimiter(" ");
             int i = sc.nextInt();
-            System.out.println("date " + i);
             sc.close();
             int middle = (start + end) / 2;
-            System.out.println("middle " + middle);
-            System.out.println("txt file date (mid)" + mArr[middle].getDateInt());
-            System.out.println("end " + end + "start " + start );
-
             if ((mArr[middle].getDateInt()) == i)
             {
                 return middle;
             } else if ((mArr[middle].getDateInt()) > i)
             {
-                start = middle + 1;
+                end = middle - 1;
             } else
             {
-                end = middle - 1;
+                start = middle + 1;
             }
         }
         return -1;
@@ -87,7 +83,7 @@ public class MatchesArray
     public void shiftRight(int index)
     {
         size++;
-        for (int i = size -1; i > index - 1; i--)
+        for (int i = size - 1; i > index; i--)
         {
             mArr[i] = mArr[i - 1];
         }
@@ -130,17 +126,18 @@ public class MatchesArray
 
     public void addMatch(String date, String opponent, char location)
     {
-        this.shiftRight(size - 1);
-        mArr[size - 1] = new Matches(date, opponent, location);
-        this.sortDate();
-        this.printToFile();
+        
+            this.shiftRight(size - 1);
+            mArr[size - 1] = new Matches(date, opponent, location);
+            this.sortDate();
+            this.printToFile();
+        
     }
 
     public void deleteMatch(String date)
     {
 
         int index = binarySearch(date);
-        System.out.println(index);
         if (index >= 0)
         {
             shiftLeft(index);
@@ -161,4 +158,17 @@ public class MatchesArray
         }
         return players;
     }
+
+    public boolean checkDate(String date)
+    {
+        char d = date.charAt(0);
+        if(Character.isDigit(d))
+        {
+            return true;
+        }else
+        {
+            return false;
+        }
+    }
+
 }

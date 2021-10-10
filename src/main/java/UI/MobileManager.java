@@ -38,16 +38,13 @@ public class MobileManager extends javax.swing.JFrame
         PlayerManagerButton = new javax.swing.JButton();
         practiceButton1 = new javax.swing.JButton();
         ViewMatchesButton = new javax.swing.JButton();
-        lineupsButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         overviewLabel = new javax.swing.JLabel();
-        attendanceButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(500, 340));
-        setMinimumSize(new java.awt.Dimension(500, 340));
-        setPreferredSize(new java.awt.Dimension(500, 400));
-        setSize(new java.awt.Dimension(500, 340));
+        setMaximumSize(new java.awt.Dimension(427, 390));
+        setMinimumSize(new java.awt.Dimension(427, 390));
+        setSize(new java.awt.Dimension(427, 390));
 
         PlayerManagerButton.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         PlayerManagerButton.setText("Player manager");
@@ -79,16 +76,6 @@ public class MobileManager extends javax.swing.JFrame
             }
         });
 
-        lineupsButton.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        lineupsButton.setText("Lineups");
-        lineupsButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                lineupsButtonActionPerformed(evt);
-            }
-        });
-
         logoutButton.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         logoutButton.setText("logout");
         logoutButton.addActionListener(new java.awt.event.ActionListener()
@@ -99,59 +86,43 @@ public class MobileManager extends javax.swing.JFrame
             }
         });
 
-        overviewLabel.setFont(new java.awt.Font("Monospaced", 1, 36)); // NOI18N
+        overviewLabel.setFont(new java.awt.Font("Monospaced", 1, 48)); // NOI18N
         overviewLabel.setText("MOBILE MANAGER");
-
-        attendanceButton.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
-        attendanceButton.setText("Attendance");
-        attendanceButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                attendanceButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(overviewLabel)
-                .addContainerGap(56, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(168, 168, 168)
-                .addComponent(logoutButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lineupsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PlayerManagerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                     .addComponent(practiceButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ViewMatchesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(attendanceButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ViewMatchesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(overviewLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addComponent(logoutButton)
+                .addContainerGap(199, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(19, 19, 19)
                 .addComponent(overviewLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(practiceButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ViewMatchesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(PlayerManagerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lineupsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(attendanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(44, 44, 44)
                 .addComponent(logoutButton)
-                .addGap(23, 23, 23))
+                .addGap(51, 51, 51))
         );
 
         pack();
@@ -169,12 +140,6 @@ public class MobileManager extends javax.swing.JFrame
         dispose();
     }//GEN-LAST:event_PlayerManagerButtonActionPerformed
 
-    private void lineupsButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_lineupsButtonActionPerformed
-    {//GEN-HEADEREND:event_lineupsButtonActionPerformed
-        new Lineups().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_lineupsButtonActionPerformed
-
     private void ViewMatchesButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ViewMatchesButtonActionPerformed
     {//GEN-HEADEREND:event_ViewMatchesButtonActionPerformed
         new LogMatches().setVisible(true);
@@ -186,13 +151,6 @@ public class MobileManager extends javax.swing.JFrame
         new Login().setVisible(true);
         dispose();
     }//GEN-LAST:event_logoutButtonActionPerformed
-
-    private void attendanceButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_attendanceButtonActionPerformed
-    {//GEN-HEADEREND:event_attendanceButtonActionPerformed
-        new PracticeAttendance().setVisible(true);
-        dispose();
-                
-    }//GEN-LAST:event_attendanceButtonActionPerformed
 
     /**
      @param args the command line arguments
@@ -245,8 +203,6 @@ public class MobileManager extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PlayerManagerButton;
     private javax.swing.JButton ViewMatchesButton;
-    private javax.swing.JButton attendanceButton;
-    private javax.swing.JButton lineupsButton;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel overviewLabel;
     private javax.swing.JButton practiceButton1;

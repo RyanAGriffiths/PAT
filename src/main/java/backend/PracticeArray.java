@@ -42,18 +42,20 @@ public class PracticeArray
         }
     }
 
-    private int binarySearch(String date)
+    public int binarySearch(String input)
     {
         int start = 0;
         int end = size - 1;
-
+        char c = input.charAt(0);
+        String a = Character.toString(c);
+        int date = Integer.parseInt(a);
         while (start <= end)
         {
             int middle = (start + end) / 2;
-            if (pArr[middle].getDate().equals(date))
+            if (pArr[middle].getDateInt() == (date))
             {
                 return middle;
-            } else if (date.compareTo(pArr[middle].getDate()) > 0)
+            } else if (date > pArr[middle].getDateInt())
             {
                 start = middle + 1;
             } else
@@ -94,13 +96,13 @@ public class PracticeArray
     public void shiftRight(int index)
     {
         size++;
-        for (int i = size - 1; i > index - 1; i--)
+        for (int i = size - 1; i > index; i--)
         {
             pArr[i] = pArr[i - 1];
         }
     }
 
-    public void sortDate()
+    public void sortPractice()
     {
         for (int currentIndex = size - 1; currentIndex >= 0; currentIndex--)
         {
@@ -121,20 +123,20 @@ public class PracticeArray
     {
         this.shiftRight(size - 1);
         pArr[size - 1] = new Practice(date, time, location);
-        this.sortDate();
+        this.sortPractice();
         this.printToFile();
     }
 
-    public void deletePractice(String date)
+    public void deletePractice(int index)
     {
-        int index = binarySearch(date);
-        if (index > 0)
+
+        if (index >= 0)
         {
             shiftLeft(index);
             printToFile();
         } else
         {
-            System.out.println("This player does not exist");
+            System.out.println("This practice does not exist");
         }
     }
 
@@ -163,9 +165,9 @@ public class PracticeArray
                 Scanner lsc = new Scanner(line).useDelimiter("#");
                 String date = lsc.next();
                 String time = lsc.next();
-                String location = lsc.next(); 
-                
-                outputArr[currentIndex] = date + " " + time + " " + location;
+                String location = lsc.next();
+
+                outputArr[currentIndex] = date + "\t" + time + "\t" + location;
                 currentIndex++;
             }
             sc.close();
