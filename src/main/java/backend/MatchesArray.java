@@ -153,7 +153,7 @@ public class MatchesArray
         String[] players = new String[150];
         for (int i = 0; i < size; i++)
         {
-            players[i] = mArr[i].getDate() + "                   " + mArr[i].getOpponent() + "                   " + mArr[i].getLocation();
+            players[i] = mArr[i].getDate() + "  -  " + mArr[i].getOpponent() + "  -  " + mArr[i].getLocation();
 
         }
         return players;

@@ -167,7 +167,7 @@ public class PracticeArray
                 String time = lsc.next();
                 String location = lsc.next();
 
-                outputArr[currentIndex] = date + "\t" + time + "\t" + location;
+                outputArr[currentIndex] = date + "  -  " + time + "  -  " + location;
                 currentIndex++;
             }
             sc.close();

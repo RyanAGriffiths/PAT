@@ -1,0 +1,11 @@
+17#Joe#GK
+16#Harry#CB
+17#John#CB
+16#Aaron#RB
+17#Jaden#LB
+17#Bruno#CM
+17#Paul#RCM
+18#Jesse#LCM
+15#Mason#RW
+20#Cristano#LW
+19#Anthony#CF
