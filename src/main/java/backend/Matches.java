@@ -7,10 +7,8 @@ package backend;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Ryang
- */
+//Match Object:
+//Object contains date, opponent and location. Store in matchesData.txt 
 public class Matches {
 
     private String date;

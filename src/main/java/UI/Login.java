@@ -136,7 +136,7 @@ public class Login extends javax.swing.JFrame
             dispose();
         }
         else{
-            JOptionPane.showMessageDialog(this, "ACCESS DENIED", "REALLY BAD ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "ACCESS DENIED", "ERROR!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 

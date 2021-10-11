@@ -16,12 +16,13 @@ import javax.swing.JOptionPane;
 
 public class MatchesArray
 {
-
+    //global variables
     Matches[] mArr = new Matches[150];
     private int size = 0;
 
     public MatchesArray()
     {
+        //add elements from text file into array
         try
         {
             Scanner sc = new Scanner(new File("data\\matchesData.txt"));
@@ -45,7 +46,7 @@ public class MatchesArray
             System.out.println("Matches file was not found");
         }
     }
-
+    //binary Search comparing the date of the match.
     public int binarySearch(String date)
     {
 
@@ -88,7 +89,7 @@ public class MatchesArray
             mArr[i] = mArr[i - 1];
         }
     }
-
+    //print array elements into the matchesData.txt file
     public void printToFile()
     {
 
@@ -106,7 +107,7 @@ public class MatchesArray
             System.out.println("Couldn't print to the file");
         }
     }
-
+    //sort the elements in the array by the date.
     public void sortDate()
     {
         for (int currentIndex = size - 1; currentIndex >= 0; currentIndex--)
@@ -123,7 +124,7 @@ public class MatchesArray
             }
         }
     }
-
+    //add a new match to the file using the given paramaters
     public void addMatch(String date, String opponent, char location)
     {
         
@@ -133,7 +134,7 @@ public class MatchesArray
             this.printToFile();
         
     }
-
+    //search for match and  shiftLeft() on the array in order to delete it from the array.
     public void deleteMatch(String date)
     {
 
@@ -147,7 +148,7 @@ public class MatchesArray
             System.out.println("This match does not exist");
         }
     }
-
+    //get the match from array and display in it an appropriate format.
     public String[] getMatch()
     {
         String[] players = new String[150];
@@ -158,7 +159,7 @@ public class MatchesArray
         }
         return players;
     }
-
+    //Check if the date is a number, if not return false (which will show an error message in the program)
     public boolean checkDate(String date)
     {
         char d = date.charAt(0);

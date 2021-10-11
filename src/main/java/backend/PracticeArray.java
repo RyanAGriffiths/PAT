@@ -11,13 +11,13 @@ import java.util.Scanner;
 
 public class PracticeArray
 {
-
+    //global variables
     Practice[] pArr = new Practice[150];
     private int size = 0;
 
     public PracticeArray()
     {
-
+        //retrieve data from text file - populate array
         try
         {
             Scanner sc = new Scanner(new File("data\\practiceData.txt"));
@@ -41,7 +41,7 @@ public class PracticeArray
             System.out.println("Practice file was not found");
         }
     }
-
+    //search for the index of the practice
     public int binarySearch(String input)
     {
         int start = 0;
@@ -65,7 +65,7 @@ public class PracticeArray
         }
         return -1;
     }
-
+    //print elements of array to practiceData.txt file
     public void printToFile()
     {
 
@@ -101,7 +101,7 @@ public class PracticeArray
             pArr[i] = pArr[i - 1];
         }
     }
-
+    //sort the practices in the array according to their date
     public void sortPractice()
     {
         for (int currentIndex = size - 1; currentIndex >= 0; currentIndex--)
@@ -118,7 +118,7 @@ public class PracticeArray
             }
         }
     }
-
+    //add a new practice to the array using the parameters and update the text file.
     public void addPractice(String date, String time, String location)
     {
         this.shiftRight(size - 1);
@@ -126,7 +126,7 @@ public class PracticeArray
         this.sortPractice();
         this.printToFile();
     }
-
+    //delete a practice from the array at the index and update the text flie
     public void deletePractice(int index)
     {
 
@@ -139,7 +139,7 @@ public class PracticeArray
             System.out.println("This practice does not exist");
         }
     }
-
+    //return practices as an array
     public String[] getPractice()
     {
         String[] practice = new String[150];
@@ -149,7 +149,7 @@ public class PracticeArray
         }
         return practice;
     }
-
+    //return practices as an array
     public static String[] getPracticeAsArray()
     {
         try
@@ -179,7 +179,7 @@ public class PracticeArray
             return null;
         }
     }
-
+    //get the number of practices
     private static int getNumPractice()
     {
         try

@@ -9,12 +9,13 @@ import java.util.logging.Logger;
 
 public class UserArray
 {
-
+    //global variables
     private User userArr[] = new User[150];
     private int size = 0;
 
     public UserArray()
-    {
+    {   
+        //retrieve data from text file and populate the array
         try
         {
 
@@ -38,9 +39,7 @@ public class UserArray
             System.out.println("The user's data file was not found");
         }
     }
-    //practice, practice array
-    //matches, matches array
-
+    //check if the user exists
     public boolean checkUser(String email, String password)
     {
         for (int i = 0; i < size; i++)
@@ -71,7 +70,7 @@ public class UserArray
         }
         System.out.println("");
     }
-
+    //print the elements of the array into the text file
     public void printToFile()
     {
         try
@@ -88,7 +87,7 @@ public class UserArray
         }
     }
 
-    //adduser - add to array, print array to txt
+    //add to array, print array to txt
     public void registerUser(String email, String password)
     {
        
@@ -96,7 +95,7 @@ public class UserArray
         size++;
         printToFile();
     }
-
+    
     public String toString()
     {
         String output = "";
@@ -106,9 +105,4 @@ public class UserArray
         }
         return output;
     }
-
-    //deleteUser - delete from array, print array to txt
-    //binarySearch
-    //getUser
-    //setUser
 }

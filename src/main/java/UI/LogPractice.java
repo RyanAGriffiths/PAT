@@ -23,6 +23,7 @@ public class LogPractice extends javax.swing.JFrame
     public LogPractice()
     {
         initComponents();
+        //create the list model
         DefaultListModel<String> listModel = new DefaultListModel<String>();
         String[] practice = PracticeArray.getPracticeAsArray();
         for (int i = 0; i < practice.length; i++)
@@ -262,7 +263,7 @@ public class LogPractice extends javax.swing.JFrame
         new MobileManager().setVisible(true);
         dispose();
     }//GEN-LAST:event_backButtonActionPerformed
-
+    //calls addPractice() from backend
     private void addPracticeButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_addPracticeButtonActionPerformed
     {//GEN-HEADEREND:event_addPracticeButtonActionPerformed
         if (dateTextField.getText().isEmpty() || timeTextField.getText().isEmpty() || locationTextField.getText().isEmpty())
@@ -292,7 +293,7 @@ public class LogPractice extends javax.swing.JFrame
 
     private void deletePracticeButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_deletePracticeButtonActionPerformed
     {//GEN-HEADEREND:event_deletePracticeButtonActionPerformed
-
+        //defensive programming
         if (practiceList.getSelectedValue() == null)
         {
 

@@ -26,7 +26,7 @@ public class LogMatches extends javax.swing.JFrame
         initComponents();
 
         MatchesArray m = new MatchesArray();
-
+        //create list
         DefaultListModel<String> playerListModel = new DefaultListModel<String>();
         String[] players = m.getMatch();
         for (int i = 0; i < players.length; i++)
@@ -223,7 +223,7 @@ public class LogMatches extends javax.swing.JFrame
         new MobileManager().setVisible(true);
         dispose();
     }//GEN-LAST:event_backButtonActionPerformed
-
+    //calls addMatch function from backend
     private void addMatchButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_addMatchButtonActionPerformed
     {//GEN-HEADEREND:event_addMatchButtonActionPerformed
         MatchesArray m = new MatchesArray();
@@ -237,6 +237,7 @@ public class LogMatches extends javax.swing.JFrame
             String opponent = opponentTextField.getText();
 
             char location = locationTextField.getText().charAt(0);
+            //defensive programming
             if (m.checkDate(date))
             {
 
@@ -259,10 +260,16 @@ public class LogMatches extends javax.swing.JFrame
             }
         }
     }//GEN-LAST:event_addMatchButtonActionPerformed
-
+    //calls deleteMatch() function from backend
     private void deleteMatchButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_deleteMatchButtonActionPerformed
     {//GEN-HEADEREND:event_deleteMatchButtonActionPerformed
-        //can't delete last match?
+        //big brain defensive programming
+        if (practiceList.getSelectedValue() == null)
+        {
+
+            JOptionPane.showMessageDialog(this, "Please select a match from the list", "ERROR!", JOptionPane.ERROR_MESSAGE);
+        }else{
+            
         String selected = practiceList.getSelectedValue();
         MatchesArray m = new MatchesArray();
         m.deleteMatch(selected);
@@ -277,6 +284,7 @@ public class LogMatches extends javax.swing.JFrame
         dateTextField.setText("");
         opponentTextField.setText("");
         locationTextField.setText("");
+        }
     }//GEN-LAST:event_deleteMatchButtonActionPerformed
 
     private void dateTextFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_dateTextFieldActionPerformed

@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 public class PlayerArray
 {
-
+    //global variables
     private Player[] plArr = new Player[150];
     private int size = 0;
 
@@ -41,7 +41,7 @@ public class PlayerArray
             System.out.println("Player file not found");
         }
     }
-
+    //searches for the player using the name
     public int binarySearch(String input)
     {
         int start = 0;
@@ -84,7 +84,7 @@ public class PlayerArray
             plArr[i] = plArr[i - 1];
         }
     }
-
+    //print elements of array to playerData.txt file
     public void printToFile()
     {
 
@@ -104,7 +104,7 @@ public class PlayerArray
             System.out.println("could not print to Player file");
         }
     }
-
+    //sort the array alphabetically using the name.
     public void sortAlphabetically()
     {
         for (int currentIndex = size - 1; currentIndex >= 0; currentIndex--)
@@ -122,7 +122,7 @@ public class PlayerArray
         }
         this.printToFile();
     }
-
+    //sort the array numerically ascending using the age.
     public void sortbyAge()
     {
         for (int currentIndex = size - 1; currentIndex >= 0; currentIndex--)
@@ -140,7 +140,7 @@ public class PlayerArray
         }
         this.printToFile();
     }
-
+    //add a the new player to the array using the parameters and update the text file using the printToFile() function.
     public void addPlayer(int age, String name, String position)
     {
         this.shiftRight(size - 1);
@@ -148,7 +148,7 @@ public class PlayerArray
         this.sortAlphabetically();
         this.printToFile();
     }
-
+    //delete a player by searching for it's index and shiftLeft() on that index in the array. Update the text file using printToFIle()
     public void deletePlayer(String name)
     {
         //this.sortAlphabetically();
@@ -162,7 +162,7 @@ public class PlayerArray
             System.out.println("This player does not exist");
         }
     }
-
+    //return the players as an array 
     public String[] getPlayers()
     {
         String[] players = new String[150];
@@ -172,7 +172,7 @@ public class PlayerArray
         }
         return players;
     }
-
+    //return the players as an array
     public static String[] getPlayerAsArray()
     {
         try
@@ -202,7 +202,7 @@ public class PlayerArray
             return null;
         }
     }
-
+    //count the number of players in the array
     private static int getNumPlayers()
     {
         try
@@ -223,7 +223,7 @@ public class PlayerArray
             return -1;
         }
     }
-    
+    //validate the age by checking if it is an integer, if not return false
     public boolean checkAge(String age)
     {
         boolean bool;

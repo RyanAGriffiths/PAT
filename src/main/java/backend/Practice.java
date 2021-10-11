@@ -4,10 +4,7 @@
  */
 package backend;
 
-/**
- *
- * @author ryang
- */
+//contains practice's date, time and location
 public class Practice
 {
 

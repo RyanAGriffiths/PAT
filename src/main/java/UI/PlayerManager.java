@@ -26,7 +26,7 @@ public class PlayerManager extends javax.swing.JFrame
 
         PlayerArray p = new PlayerArray();
         String[] players = p.getPlayerAsArray();
-
+        //create list model
         DefaultListModel<String> model = new DefaultListModel<String>();
 
         //for every element in player, adds to list
@@ -264,6 +264,7 @@ public class PlayerManager extends javax.swing.JFrame
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_deleteButtonActionPerformed
     {//GEN-HEADEREND:event_deleteButtonActionPerformed
+        //defensive programming - checks if there is no selected value in list
         if (lineupList.getSelectedValue() == null)
         {
 
@@ -298,9 +299,10 @@ public class PlayerManager extends javax.swing.JFrame
 
         lineupList.setListData(players);
     }//GEN-LAST:event_sortByAgeButtonActionPerformed
-
+    //calls addPlayer() function
     private void addPlayerButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_addPlayerButtonActionPerformed
     {//GEN-HEADEREND:event_addPlayerButtonActionPerformed
+        //checks if the text fields are empty
         if (nameTextField.getText().isEmpty() || ageTextField.getText().isEmpty() || positionTextField.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Please input values", "ERROR!", JOptionPane.ERROR_MESSAGE);
